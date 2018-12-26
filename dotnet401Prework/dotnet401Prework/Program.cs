@@ -6,8 +6,26 @@ namespace dotnet401Prework
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            arrayMaxResultWrapper();
+            bool validSelect = false;
+            while (!validSelect) {
+                validSelect = true;
+                Console.WriteLine("Hello World!");
+                Console.WriteLine("Please select one of the following by typing in its problem number.");
+                Console.WriteLine("Problem #1: Array Max Result");
+                var problemNumber = Console.ReadLine();
+                if (int.Parse(problemNumber) == 1)
+                {
+                    Console.WriteLine("Accessing Array Max Result.");
+                    arrayMaxResultWrapper();
+                }
+                else
+                {
+                    validSelect = false;
+                    Console.WriteLine("I'm sorry, I don't understand that input. Can you please try again?");
+                    Console.WriteLine();
+                }
+            }
+            Console.WriteLine("Have a nice day.");
             Console.ReadLine();
         }
 
@@ -30,9 +48,17 @@ namespace dotnet401Prework
 
         static void arrayMaxResultWrapper()
         {
+            int[] testArray = new int[] { 6, 4, 4, 1, 3 };
+            int testNum = 4;
+            Console.WriteLine("Results of arrayMaxResult([6, 4, 4, 1, 3], 4): " + arrayMaxResult(testArray, testNum));
             Console.WriteLine("Please type in an array of five integers, and choose one of those integers.");
             var userInput = Console.ReadLine();
-            Console.WriteLine(userInput.GetType());
+            var charArray = userInput.Split(",");
+
+            var arrayInput = userInput.Split("],")[0];
+            var numberInput = userInput.Split("],")[1];
+            Console.WriteLine(arrayInput.GetType() + " " + arrayInput);
+            Console.WriteLine(numberInput.GetType() + " " + numberInput);
         }
     }
 }
