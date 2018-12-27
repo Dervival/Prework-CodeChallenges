@@ -50,15 +50,45 @@ namespace dotnet401Prework
         {
             int[] testArray = new int[] { 6, 4, 4, 1, 3 };
             int testNum = 4;
-            Console.WriteLine("Results of arrayMaxResult([6, 4, 4, 1, 3], 4): " + arrayMaxResult(testArray, testNum));
             Console.WriteLine("Please type in an array of five integers, and choose one of those integers.");
+            Console.WriteLine("For instance, typing in [6, 4, 4, 1, 3], 4) will calculate the result " + arrayMaxResult(testArray, testNum) + ".");
             var userInput = Console.ReadLine();
             var charArray = userInput.Split(",");
 
-            var arrayInput = userInput.Split("],")[0];
+            //Format of the input is [comma-delimited array], int - split into two arguments for the actual function
+            var rawArrayInput = userInput.Split("],")[0];
+            var arrayInput = rawArrayInput.Split(",");
+            int[] parsedArray = new int[arrayInput.Length]; 
+            //Possible garbage between integers in the array that would be prepended to the int - keep trimming characters off the string array until it can be parsed into an integer
+            for (int i = 0; i < arrayInput.Length; i++)
+            {
+                bool parsedIndex = Int32.TryParse(arrayInput[i], out int number);
+                while (!parsedIndex) {
+                    arrayInput[i] = arrayInput[i].Substring(1);
+                    parsedIndex = Int32.TryParse(arrayInput[i], out number);
+                }
+                parsedArray[i] = number;
+            }
             var numberInput = userInput.Split("],")[1];
-            Console.WriteLine(arrayInput.GetType() + " " + arrayInput);
-            Console.WriteLine(numberInput.GetType() + " " + numberInput);
+            bool parsedInput = Int32.TryParse(numberInput, out int input);
+            while (!parsedInput)
+            {
+                numberInput = numberInput.Substring(1);
+                parsedInput = Int32.TryParse(numberInput, out input);
+            }
+            //Console.WriteLine(rawArrayInput.GetType() + " " + rawArrayInput);
+            //for(int i = 0; i < arrayInput.Length; i++)
+            //{
+            //    Console.WriteLine("arrayInput at index i: " + arrayInput[i].GetType() + " " +arrayInput[i]);
+            //}
+            //for (int i = 0; i < parsedArray.Length; i++)
+            //{
+            //    Console.WriteLine("parsedArray at index i: " + parsedArray[i].GetType() + " " + parsedArray[i]);
+            //}
+            //Console.WriteLine(numberInput.GetType() + " " + numberInput);
+            //Console.WriteLine(input.GetType() + " " + input);
+
+            Console.WriteLine("Results of arrayMaxResult(" + userInput + "): " + arrayMaxResult(parsedArray, input));
         }
     }
 }
