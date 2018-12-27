@@ -48,3 +48,30 @@ An integer for the year being tested.
 
 #### Screen Capture of Successful Test
 ![Picture of leap year for problem 2](https://github.com/Dervival/Prework-CodeChallenges/blob/master/preworkProb2isLeap.PNG)
+
+
+## Problem 3: Perfect Sequences
+
+#### Instructions
+Given an array of integers, determine if it is a perfect sequence (sum of all entries is equal to the product of all entries). Negative integers are not part of a perfect sequence.
+
+#### Input Format
+An array of integers.
+
+#### Sample Input
+[1, 2, 3]
+
+#### Sample Output
+The array [1, 2, 3] is a perfect sequence.
+
+#### Screen Capture of Successful Test
+![Picture of a perfect sequence for problem 3](https://github.com/Dervival/Prework-CodeChallenges/blob/master/preworkProb3isPerf.PNG)
+
+#### Sample Input
+[4, 5, 6]
+
+#### Sample Output
+The array [4, 5, 6] is not a perfect sequence.
+
+#### Screen Capture of Successful Test
+![Picture of a perfect sequence for problem 3](https://github.com/Dervival/Prework-CodeChallenges/blob/master/preworkProb3isNotPerf.PNG)
