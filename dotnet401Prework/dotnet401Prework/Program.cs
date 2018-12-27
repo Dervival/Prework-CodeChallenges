@@ -13,23 +13,53 @@ namespace dotnet401Prework
                 Console.WriteLine("Please select one of the following by typing in its problem number.");
                 Console.WriteLine("Problem #1: Array Max Result");
                 Console.WriteLine("Problem #2: Leap Year Calculator");
-                var problemNumber = Console.ReadLine();
-                if (int.Parse(problemNumber) == 1)
-                {
-                    Console.WriteLine("Accessing Array Max Result.");
-                    arrayMaxResultWrapper();
-                }
-                else if(int.Parse(problemNumber) == 2)
-                {
-                    Console.WriteLine("Accessing Leap Year Calculator.");
-                    isLeapYearWrapper();
-                }
-                else
+                Console.WriteLine("Problem #3: Perfect Sequence");
+                var problemNum = Console.ReadLine();
+                bool validParse = Int32.TryParse(problemNum, out int problemNumber);
+                if (!validParse)
                 {
                     validSelect = false;
                     Console.WriteLine("I'm sorry, I don't understand that input. Can you please try again?");
                     Console.WriteLine();
                 }
+                switch (problemNumber)
+                {
+                    case 1:
+                        Console.WriteLine("Accessing Array Max Result.");
+                        arrayMaxResultWrapper();
+                        break;
+                    case 2:
+                        Console.WriteLine("Accessing Leap Year Calculator.");
+                        isLeapYearWrapper();
+                        break;
+                    default:
+                        validSelect = false;
+                        Console.WriteLine("I'm sorry, I don't understand that input. Can you please try again?");
+                        //probably a better way to do this line break...
+                        Console.WriteLine();
+                        break;
+                }
+                //if (int.Parse(problemNumber) == 1)
+                //{
+                //    Console.WriteLine("Accessing Array Max Result.");
+                //    arrayMaxResultWrapper();
+                //}
+                //else if(int.Parse(problemNumber) == 2)
+                //{
+                //    Console.WriteLine("Accessing Leap Year Calculator.");
+                //    isLeapYearWrapper();
+                //}
+                //else if(int.Parse(problemNumber) == 3)
+                //{
+                //    Console.WriteLine("Accessing Perfect Sequence");
+                //    perfectSequenceWrapper();
+                //}
+                //else
+                //{
+                //    validSelect = false;
+                //    Console.WriteLine("I'm sorry, I don't understand that input. Can you please try again?");
+                //    Console.WriteLine();
+                //}
             }
             Console.WriteLine("Have a nice day.");
             Console.ReadLine();
