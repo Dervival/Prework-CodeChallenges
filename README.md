@@ -21,3 +21,30 @@ An array of integers, and the number chosen.
 
 #### Screen Capture of Successful Test
 ![Picture showing success of problem 1](https://github.com/Dervival/Prework-CodeChallenges/blob/master/preworkProb1.PNG)
+
+
+## Problem 2: Leap Year Calculator
+
+#### Instructions
+Given a (non-negative) year, determine whether it is a leap year or not. 
+
+#### Input Format
+An integer for the year being tested.
+
+#### Sample Input
+1999
+
+#### Sample Output
+1999 is not a leap year.
+
+#### Screen Capture of Successful Test
+![Picture of non-leap year for problem 2](https://github.com/Dervival/Prework-CodeChallenges/blob/master/preworkProb2isNotLeap.PNG)
+
+#### Sample Input
+2000
+
+#### Sample Output
+2000 is a leap year.
+
+#### Screen Capture of Successful Test
+![Picture of leap year for problem 2](https://github.com/Dervival/Prework-CodeChallenges/blob/master/preworkProb2isLeap.PNG)

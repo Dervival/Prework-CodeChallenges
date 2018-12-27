@@ -12,11 +12,17 @@ namespace dotnet401Prework
                 Console.WriteLine("Hello World!");
                 Console.WriteLine("Please select one of the following by typing in its problem number.");
                 Console.WriteLine("Problem #1: Array Max Result");
+                Console.WriteLine("Problem #2: Leap Year Calculator");
                 var problemNumber = Console.ReadLine();
                 if (int.Parse(problemNumber) == 1)
                 {
                     Console.WriteLine("Accessing Array Max Result.");
                     arrayMaxResultWrapper();
+                }
+                else if(int.Parse(problemNumber) == 2)
+                {
+                    Console.WriteLine("Accessing Leap Year Calculator.");
+                    isLeapYearWrapper();
                 }
                 else
                 {
@@ -44,6 +50,51 @@ namespace dotnet401Prework
                 }
             }
             return value;
+        }
+
+        static bool isLeapYear(int year)
+        {
+            if(year%400 == 0)
+            {
+                return true;
+            }
+            else if(year%100 == 0)
+            {
+                return false;
+            }
+            else if(year%4 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        static void isLeapYearWrapper()
+        {
+            Console.WriteLine("Please enter a year to check.");
+            string userYear = Console.ReadLine();
+            int parseYear = -1;
+            bool isValid = false;
+            while (!isValid)
+            {
+                isValid = Int32.TryParse(userYear, out parseYear);
+                if (!isValid)
+                {
+                    Console.WriteLine("I'm sorry, " + userYear + " is not a valid year. Please enter a valid year.");
+                    userYear = Console.ReadLine();
+                }
+            }
+            if (isLeapYear(parseYear))
+            {
+                Console.WriteLine(parseYear + " is a leap year.");
+            }
+            else
+            {
+                Console.WriteLine(parseYear + " is not a leap year.");
+            }
         }
 
         static void arrayMaxResultWrapper()
