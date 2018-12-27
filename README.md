@@ -20,5 +20,4 @@ An array of integers, and the number chosen.
 8
 
 #### Screen Capture of Successful Test
-Placeholder text
-![alt text](https://www.google.com)
+![Picture showing success of problem 1](https://github.com/Dervival/Prework-CodeChallenges/blob/master/preworkProb1.PNG)
