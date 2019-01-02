@@ -75,3 +75,21 @@ The array [4, 5, 6] is not a perfect sequence.
 
 #### Screen Capture of Successful Test
 ![Picture of a perfect sequence for problem 3](https://github.com/Dervival/Prework-CodeChallenges/blob/master/preworkProb3isNotPerf.PNG)
+
+
+## Problem 4: Sum of Rows
+
+#### Instructions
+Given 2 integers representing the number of rows and column for a matrix of integers, generate a matrix of integers and an array representing the sum of integers in each row.
+
+#### Input Format
+Two integers, separated by a space.
+
+#### Sample Input
+4 7
+
+#### Sample Output
+[25, -139, 157, -53]
+
+#### Screen Capture of Successful Test
+![Picture of a perfect sequence for problem 4](https://github.com/Dervival/Prework-CodeChallenges/blob/master/preworkProb4.PNG)
