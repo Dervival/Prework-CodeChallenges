@@ -14,6 +14,7 @@ namespace dotnet401Prework
                 Console.WriteLine("Problem #1: Array Max Result");
                 Console.WriteLine("Problem #2: Leap Year Calculator");
                 Console.WriteLine("Problem #3: Perfect Sequence");
+                Console.WriteLine("Problem #4: Sum of Rows");
                 var problemNum = Console.ReadLine();
                 bool validParse = Int32.TryParse(problemNum, out int problemNumber);
                 if (!validParse)
@@ -33,10 +34,20 @@ namespace dotnet401Prework
                         isLeapYearWrapper();
                         break;
                     case 3:
-                        Console.WriteLine("Accessing Perfect Sequence");
+                        Console.WriteLine("Accessing Perfect Sequence.");
                         perfectSequenceWrapper();
                         break;
                     case 4:
+                        Console.WriteLine("Accessing Sum of Rows.");
+                        int[,] myArray = new int[3, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } };
+                        int[] testArray = sumOfRows(myArray);
+                        Console.WriteLine("Result of sumOfRows: [");
+                        for(int i = 0; i < testArray.Length; i++)
+                        {
+                            Console.WriteLine(testArray[i]);
+                        }
+                        Console.WriteLine("]");
+                        //sumOfRowsWrapper();
                         break;
                     default:
                         validSelect = false;
@@ -45,27 +56,6 @@ namespace dotnet401Prework
                         Console.WriteLine();
                         break;
                 }
-                //if (int.Parse(problemNumber) == 1)
-                //{
-                //    Console.WriteLine("Accessing Array Max Result.");
-                //    arrayMaxResultWrapper();
-                //}
-                //else if(int.Parse(problemNumber) == 2)
-                //{
-                //    Console.WriteLine("Accessing Leap Year Calculator.");
-                //    isLeapYearWrapper();
-                //}
-                //else if(int.Parse(problemNumber) == 3)
-                //{
-                //    Console.WriteLine("Accessing Perfect Sequence");
-                //    perfectSequenceWrapper();
-                //}
-                //else
-                //{
-                //    validSelect = false;
-                //    Console.WriteLine("I'm sorry, I don't understand that input. Can you please try again?");
-                //    Console.WriteLine();
-                //}
             }
             Console.WriteLine("Have a nice day.");
             Console.ReadLine();
@@ -135,6 +125,23 @@ namespace dotnet401Prework
                 mult *= array[i];
             }
             return mult;
+        }
+
+        static int[] sumOfRows(int[,] rowArray)
+        {
+            Console.WriteLine("rowArray has " + rowArray.GetLength(0) + " rows.");
+            int[] sumArray = new int[rowArray.GetLength(0)];
+            for(int i = 0; i < rowArray.GetLength(0); i++)
+            {
+                //refactor this to use arraySum() later?
+                int rowSum = 0;
+                for(int j = 0; j < rowArray.GetLength(1); j++)
+                {
+                    rowSum += rowArray[i, j];
+                }
+                sumArray[i] = rowSum;
+            }
+            return sumArray;
         }
 
         static void perfectSequenceWrapper()
