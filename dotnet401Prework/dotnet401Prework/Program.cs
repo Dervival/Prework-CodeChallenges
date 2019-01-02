@@ -39,15 +39,15 @@ namespace dotnet401Prework
                         break;
                     case 4:
                         Console.WriteLine("Accessing Sum of Rows.");
-                        int[,] myArray = new int[3, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } };
-                        int[] testArray = sumOfRows(myArray);
-                        Console.WriteLine("Result of sumOfRows: [");
-                        for(int i = 0; i < testArray.Length; i++)
-                        {
-                            Console.WriteLine(testArray[i]);
-                        }
-                        Console.WriteLine("]");
-                        //sumOfRowsWrapper();
+                        //int[,] myArray = new int[3, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } };
+                        //int[] testArray = sumOfRows(myArray);
+                        //Console.WriteLine("Result of sumOfRows: [");
+                        //for(int i = 0; i < testArray.Length; i++)
+                        //{
+                        //    Console.WriteLine(testArray[i]);
+                        //}
+                        //Console.WriteLine("]");
+                        sumOfRowsWrapper();
                         break;
                     default:
                         validSelect = false;
@@ -142,6 +142,74 @@ namespace dotnet401Prework
                 sumArray[i] = rowSum;
             }
             return sumArray;
+        }
+
+        static void sumOfRowsWrapper()
+        {
+            Console.WriteLine("This program generates a 2 dimensional matrix of random integers between -100 and 100, sums the integers in each row, and returns the result.");
+            Console.WriteLine("Please type in the number of rows and columns of the desired array, separated by a space. For instance, \"3 5\" will create a matrix of 3 rows and 5 columns.");
+            var userInput = Console.ReadLine();
+            var rawrows = userInput.Split(" ")[0];
+            var rawcols = userInput.Split(" ")[1];
+            int rows;
+            int cols;
+            bool parserows = Int32.TryParse(rawrows, out rows);
+            while (!parserows)
+            {
+                rawrows = rawrows.Substring(1);
+                parserows = Int32.TryParse(rawrows, out rows);
+            }
+            bool parsecols = Int32.TryParse(rawcols, out cols);
+            while (!parsecols)
+            {
+                rawcols = rawcols.Substring(1);
+                parsecols = Int32.TryParse(rawcols, out cols);
+            }
+            Console.WriteLine("Generating a matrix with " + rows + " rows and " + cols + " columns.");
+            int[,] generatedArray = new int[rows, cols];
+            Random randInt = new Random();
+            for(int i = 0; i < rows; i++)
+            {
+                for(int j = 0; j < cols; j++)
+                {
+                    generatedArray[i, j] = randInt.Next(-100, 100);
+                }
+            }
+            Console.WriteLine("Generated matrix: ");
+            Console.Write("[");
+            for(int i = 0; i < generatedArray.GetLength(0); i++)
+            {
+                Console.Write("[");
+                for(int j = 0; j < generatedArray.GetLength(1); j++)
+                {
+                    Console.Write(generatedArray[i, j]);
+                    if(j < generatedArray.GetLength(1) - 1)
+                    {
+                        Console.Write(", ");
+                    }
+                }
+                if(i < generatedArray.GetLength(0) - 1)
+                {
+                    Console.WriteLine("], ");
+                }
+                else
+                {
+                    Console.WriteLine("]]");
+                }
+            }
+            int[] resultArray = sumOfRows(generatedArray);
+            Console.WriteLine("Result of sumOfRows: ");
+            Console.Write("[");
+            for(int i = 0; i < resultArray.Length; i++)
+            {
+                Console.Write(resultArray[i]);
+                if(i < resultArray.Length - 1)
+                {
+                    Console.Write(", ");
+                }
+            }
+            Console.WriteLine("]");
+
         }
 
         static void perfectSequenceWrapper()
